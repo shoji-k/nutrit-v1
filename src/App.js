@@ -1,15 +1,21 @@
 import React, { Component } from 'react'
 
-class Hello extends Component {
+class RequiredAmountList extends Component {
   render() {
-    return <h1>Hello</h1>
+    return (
+      <dl>
+        <dt>Energy</dt>
+        <dd>2650 kcal/day</dd>
+      </dl>
+    )
   }
 }
 
-class App extends Component {
-  render() {
-    return <Hello />
-  }
-}
+const App = () => (
+  <div className="uk-container">
+    <h1>Nutrition</h1>
+    <RequiredAmountList />
+  </div>
+)
 
 export default App
