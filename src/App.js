@@ -251,8 +251,13 @@ class RequiredNutrition extends Component {
     )
     return (
       <Fragment>
+        <h3>食事摂取基準</h3>
         <Form formValues={this.state} handleChange={this.handleChange} />
+        <hr />
         <List data={data[this.state.sex]} />
+        <small>
+          出典: <a href="https://www.glico.co.jp/navi/e07.htm">食事摂取基準</a>
+        </small>
       </Fragment>
     )
   }
@@ -260,12 +265,18 @@ class RequiredNutrition extends Component {
 
 const List = ({ data }) => {
   return (
-    <dl>
-      <dt>Energy</dt>
-      <dd>{data.energy} kcal/day</dd>
-      <dt>Protein</dt>
-      <dd>{data.protein} g/day</dd>
-    </dl>
+    <table className="uk-table uk-table-divider">
+      <tbody>
+        <tr>
+          <th>Energy</th>
+          <td>{data.energy} kcal/day</td>
+        </tr>
+        <tr>
+          <th>Protein</th>
+          <td>{data.protein} g/day</td>
+        </tr>
+      </tbody>
+    </table>
   )
 }
 
