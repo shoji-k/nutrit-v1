@@ -5,72 +5,88 @@ const nutritionData = [
     ages: [1, 2],
     male: {
       energy: 1000,
+      protein: 20,
     },
     female: {
       energy: 900,
+      protein: 20,
     },
   },
   {
     ages: [3, 4, 5],
     male: {
       energy: 1300,
+      protein: 25,
     },
     female: {
       energy: 1250,
+      protein: 25,
     },
   },
   {
     ages: [6, 7],
     male: {
       energy: 1550,
+      protein: 30,
     },
     female: {
       energy: 1450,
+      protein: 30,
     },
   },
   {
     ages: [8, 9],
     male: {
       energy: 1800,
+      protein: 40,
     },
     female: {
       energy: 1700,
+      protein: 40,
     },
   },
   {
     ages: [10, 11],
     male: {
       energy: 2250,
+      protein: 45,
     },
     female: {
       energy: 2000,
+      protein: 45,
     },
   },
   {
     ages: [12, 13, 14],
     male: {
       energy: 2500,
+      protein: 60,
     },
     female: {
       energy: 2250,
+      protein: 55,
     },
   },
   {
     ages: [15, 16, 17],
     male: {
       energy: 2750,
+      protein: 60,
     },
     female: {
       energy: 2250,
+      protein: 55,
     },
   },
   {
     ages: [18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
     male: {
       energy: 2650,
+      protein: 60,
     },
     female: {
       energy: 1950,
+      protein: 50,
     },
   },
   {
@@ -98,9 +114,11 @@ const nutritionData = [
     ],
     male: {
       energy: 2650,
+      protein: 60,
     },
     female: {
       energy: 2000,
+      protein: 50,
     },
   },
   {
@@ -128,18 +146,22 @@ const nutritionData = [
     ],
     male: {
       energy: 2450,
+      protein: 60,
     },
     female: {
       energy: 1950,
+      protein: 50,
     },
   },
   {
     ages: [70],
     male: {
       energy: 2200,
+      protein: 60,
     },
     female: {
       energy: 1700,
+      protein: 50,
     },
   },
 ]
@@ -224,16 +246,13 @@ class RequiredNutrition extends Component {
   }
 
   render() {
-    const oneEnergy = nutritionData.find(one =>
+    const data = nutritionData.find(one =>
       one.ages.includes(parseInt(this.state.age, 10))
     )
-    const data = {
-      energy: oneEnergy[this.state.sex].energy,
-    }
     return (
       <Fragment>
         <Form formValues={this.state} handleChange={this.handleChange} />
-        <List data={data} />
+        <List data={data[this.state.sex]} />
       </Fragment>
     )
   }
@@ -244,6 +263,8 @@ const List = ({ data }) => {
     <dl>
       <dt>Energy</dt>
       <dd>{data.energy} kcal/day</dd>
+      <dt>Protein</dt>
+      <dd>{data.protein} g/day</dd>
     </dl>
   )
 }
