@@ -8,10 +8,17 @@ const NoMatch = () => <h2>Not Found</h2>
 
 const App = () => (
   <Router>
-    <h1>
-      <Link to="/">Nutrit</Link>
-    </h1>
     <div className="uk-container">
+      <nav className="uk-navbar">
+        <div className="uk-navbar-left">
+          <h1 style={{ margin: 0 }}>
+            <Link to="/" className="uk-navbar-item uk-logo">
+              Nutrit
+            </Link>
+          </h1>
+        </div>
+      </nav>
+
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/nutrition" component={RequiredNutrition} />

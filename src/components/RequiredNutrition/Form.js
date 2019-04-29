@@ -4,9 +4,7 @@ const Form = ({ formValues, handleChange }) => {
   return (
     <form className="uk-form-horizontal">
       <div className="uk-margin">
-        <label className="uk-form-label" htmlFor="form-horizontal-select">
-          Age
-        </label>
+        <label className="uk-form-label">年齢</label>
         <div className="uk-form-controls">
           <select
             className="uk-select uk-form-width-small"
@@ -30,7 +28,7 @@ const Form = ({ formValues, handleChange }) => {
         </div>
       </div>
       <div className="uk-margin">
-        <div className="uk-form-label">Radio</div>
+        <div className="uk-form-label">性別</div>
         <div className="uk-form-controls uk-form-controls-text">
           <label>
             <input
@@ -41,7 +39,7 @@ const Form = ({ formValues, handleChange }) => {
               checked={formValues.sex === 'male'}
               onChange={handleChange}
             />{' '}
-            Male
+            男性
           </label>
           <br />
           <label>
@@ -53,7 +51,7 @@ const Form = ({ formValues, handleChange }) => {
               checked={formValues.sex === 'female'}
               onChange={handleChange}
             />{' '}
-            Female
+            女性
           </label>
         </div>
       </div>

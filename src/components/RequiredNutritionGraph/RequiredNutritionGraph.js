@@ -46,10 +46,10 @@ const RequiredNutritionGraph = () => (
           <CartesianGrid stroke="#ccc" />
           <XAxis
             dataKey="age"
-            label={{ value: 'age', position: 'insideBottomRight', offset: 0 }}
+            label={{ value: '年齢', position: 'insideBottomRight', offset: 0 }}
           />
           <YAxis
-            label={{ value: 'Energy', angle: -90, position: 'insideLeft' }}
+            label={{ value: 'エネルギー', angle: -90, position: 'insideLeft' }}
           />
           <Tooltip />
         </LineChart>
@@ -75,10 +75,10 @@ const RequiredNutritionGraph = () => (
           <CartesianGrid stroke="#ccc" />
           <XAxis
             dataKey="age"
-            label={{ value: 'age', position: 'insideBottomRight', offset: 0 }}
+            label={{ value: '年齢', position: 'insideBottomRight', offset: 0 }}
           />
           <YAxis
-            label={{ value: 'Protein', angle: -90, position: 'insideLeft' }}
+            label={{ value: 'たんぱく質', angle: -90, position: 'insideLeft' }}
           />
           <Tooltip />
         </LineChart>

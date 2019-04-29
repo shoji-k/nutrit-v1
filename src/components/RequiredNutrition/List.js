@@ -5,11 +5,11 @@ const List = ({ data }) => {
     <table className="uk-table uk-table-divider">
       <tbody>
         <tr>
-          <th>Energy</th>
+          <th>エネルギー</th>
           <td>{data.energy} kcal/day</td>
         </tr>
         <tr>
-          <th>Protein</th>
+          <th>たんぱく質</th>
           <td>{data.protein} g/day</td>
         </tr>
       </tbody>
