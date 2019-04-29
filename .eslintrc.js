@@ -25,5 +25,5 @@ module.exports = {
     'prettier/prettier': 'error',
     'react/prop-types': 0,
   },
-  parser: "babel-eslint",
+  parser: 'babel-eslint',
 }
