@@ -160,7 +160,7 @@ const fat = [
 const getFat = (ageIndex, sex) => {
   let i = 0
   if (sex === 'female') {
-    i += 2
+    i += 1
   }
   return fat[ageIndex][i]
 }
