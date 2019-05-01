@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
 import Home from './components/Home'
+import Bmi from './components/Bmi/Bmi'
 import RequiredNutrition from './components/RequiredNutrition/RequiredNutrition'
 import RequiredNutritionGraph from './components/RequiredNutritionGraph/RequiredNutritionGraph'
 
@@ -21,6 +22,7 @@ const App = () => (
 
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/bmi" component={Bmi} />
         <Route exact path="/nutrition" component={RequiredNutrition} />
         <Route
           exact
