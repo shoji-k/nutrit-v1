@@ -87,8 +87,8 @@ const energy = [
   [1850, 2200, 2500, 1500, 1750, 2000],
 ]
 
-const getEnergy = (ageIndex, sex, level = 0) => {
-  let i = level
+const getEnergy = (ageIndex, sex, level = 2) => {
+  let i = level - 1
   if (sex === 'female') {
     i += 3
   }
@@ -340,28 +340,35 @@ const getFiber = (ageIndex, sex) => {
   return fiber[ageIndex][i]
 }
 
-export const nutritionData = ages.map((age, i) => {
-  return {
-    ages: age,
-    male: {
-      energy: getEnergy(i, 'male', 1),
-      protein: getProtein(i, 'male'),
-      fat: getFat(i, 'male'),
-      saturatdFattyAsid: getSaturatedFattyAsid(i, 'male'),
-      nSixFattyAcid: getNSixFattyAsid(i, 'male'),
-      nThreeFattyAcid: getNThreeFattyAsid(i, 'male'),
-      carbohydrate: getCarbohydrate(i, 'male'),
-      fiber: getFiber(i, 'male'),
-    },
-    female: {
-      energy: getEnergy(i, 'female', 1),
-      protein: getProtein(i, 'female'),
-      fat: getFat(i, 'female'),
-      saturatdFattyAsid: getSaturatedFattyAsid(i, 'female'),
-      nSixFattyAcid: getNSixFattyAsid(i, 'female'),
-      nThreeFattyAcid: getNThreeFattyAsid(i, 'female'),
-      carbohydrate: getCarbohydrate(i, 'female'),
-      fiber: getFiber(i, 'female'),
-    },
-  }
-})
+export const getNutritionData = exercise_level =>
+  ages.map((age, i) => {
+    return {
+      ages: age,
+      male: {
+        energy: getEnergy(i, 'male', exercise_level),
+        energyLow: getEnergy(i, 'male', 1),
+        energyMiddle: getEnergy(i, 'male', 2),
+        energyHigh: getEnergy(i, 'male', 3),
+        protein: getProtein(i, 'male'),
+        fat: getFat(i, 'male'),
+        saturatdFattyAsid: getSaturatedFattyAsid(i, 'male'),
+        nSixFattyAcid: getNSixFattyAsid(i, 'male'),
+        nThreeFattyAcid: getNThreeFattyAsid(i, 'male'),
+        carbohydrate: getCarbohydrate(i, 'male'),
+        fiber: getFiber(i, 'male'),
+      },
+      female: {
+        energy: getEnergy(i, 'female', exercise_level),
+        energyLow: getEnergy(i, 'female', 1),
+        energyMiddle: getEnergy(i, 'female', 2),
+        energyHigh: getEnergy(i, 'female', 3),
+        protein: getProtein(i, 'female'),
+        fat: getFat(i, 'female'),
+        saturatdFattyAsid: getSaturatedFattyAsid(i, 'female'),
+        nSixFattyAcid: getNSixFattyAsid(i, 'female'),
+        nThreeFattyAcid: getNThreeFattyAsid(i, 'female'),
+        carbohydrate: getCarbohydrate(i, 'female'),
+        fiber: getFiber(i, 'female'),
+      },
+    }
+  })

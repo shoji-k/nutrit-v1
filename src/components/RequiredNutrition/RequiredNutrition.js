@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { nutritionData } from './constants'
+import { getNutritionData } from './constants'
 import Form from './Form'
 import List from './List'
 
@@ -10,6 +10,7 @@ class RequiredNutrition extends Component {
     this.state = {
       age: 35,
       sex: 'male',
+      exercise_level: 2,
     }
   }
 
@@ -18,7 +19,7 @@ class RequiredNutrition extends Component {
   }
 
   render() {
-    const data = nutritionData.find(one =>
+    const data = getNutritionData(this.state.exercise_level).find(one =>
       one.ages.includes(parseInt(this.state.age, 10))
     )
     return (

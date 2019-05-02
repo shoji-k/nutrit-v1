@@ -9,19 +9,23 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from 'recharts'
-import { nutritionData } from '../RequiredNutrition/constants'
+import { getNutritionData } from '../RequiredNutrition/constants'
 
 const maleColor = '#8884d8'
 const femaleColor = '#d88884'
 
 let graphData = []
-nutritionData.forEach(one => {
+getNutritionData(2).forEach(one => {
   one.ages.forEach(age => {
     const obj = {
       age: age,
-      energy_male: one.male.energy,
+      energy_low_male: one.male.energyLow,
+      energy_middle_male: one.male.energyMiddle,
+      energy_high_male: one.male.energyHigh,
+      energy_low_female: one.female.energyLow,
+      energy_middle_female: one.female.energyMiddle,
+      energy_high_female: one.female.energyHigh,
       protein_male: one.male.protein,
-      energy_female: one.female.energy,
       protein_female: one.female.protein,
       fat_male: one.male.fat,
       fat_female: one.female.fat,
@@ -52,11 +56,7 @@ const RequiredNutritionGraph = () => (
       <h3>エネルギー</h3>
       <ResponsiveContainer width="100%" height={400}>
         <LineChart
-          data={graphData.map(d => ({
-            age: d.age,
-            male: d.energy_male,
-            female: d.energy_female,
-          }))}
+          data={graphData}
           margin={{
             top: 30,
             right: 30,
@@ -64,8 +64,42 @@ const RequiredNutritionGraph = () => (
             bottom: 30,
           }}
         >
-          <Line type="monotone" dataKey="male" stroke={maleColor} />
-          <Line type="monotone" dataKey="female" stroke={femaleColor} />
+          <Line
+            type="monotone"
+            dataKey="energy_low_male"
+            name="男性 身体活動レベル 低い"
+            stroke={'#6159ea'}
+          />
+          <Line
+            type="monotone"
+            dataKey="energy_middle_male"
+            name="男性 身体活動レベル ふつう"
+            stroke={'#7471b9'}
+          />
+          <Line
+            type="monotone"
+            dataKey="energy_high_male"
+            name="男性 身体活動レベル 高い"
+            stroke={maleColor}
+          />
+          <Line
+            type="monotone"
+            dataKey="energy_low_female"
+            name="女性 身体活動レベル 低い"
+            stroke={'#9a615e'}
+          />
+          <Line
+            type="monotone"
+            dataKey="energy_middle_female"
+            name="女性 身体活動レベル ふつう"
+            stroke={'#b97471'}
+          />
+          <Line
+            type="monotone"
+            dataKey="energy_high_female"
+            name="女性 身体活動レベル 高い"
+            stroke={femaleColor}
+          />
           <CartesianGrid stroke="#ccc" />
           {XAgeAxis()}
           <YAxis />
