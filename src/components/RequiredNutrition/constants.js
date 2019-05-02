@@ -143,26 +143,27 @@ const getProtein = (ageIndex, sex) => {
 // 50～69（歳） ― 20～30（25） ― 20～30（25）
 // 70 以上（歳） ― 20～30（25） ― 20～30（25）
 
-// fat male, female
+// fat male min, male max, female
 const fat = [
-  ['20～30', '20～30'],
-  ['20～30', '20～30'],
-  ['20～30', '20～30'],
-  ['20～30', '20～30'],
-  ['20～30', '20～30'],
-  ['20～30', '20～30'],
-  ['20～30', '20～30'],
-  ['20～30', '20～30'],
-  ['20～30', '20～30'],
-  ['20～30', '20～30'],
-  ['20～30', '20～30'],
+  [20, 30, 20, 30],
+  [20, 30, 20, 30],
+  [20, 30, 20, 30],
+  [20, 30, 20, 30],
+  [20, 30, 20, 30],
+  [20, 30, 20, 30],
+  [20, 30, 20, 30],
+  [20, 30, 20, 30],
+  [20, 30, 20, 30],
+  [20, 30, 20, 30],
+  [20, 30, 20, 30],
 ]
+// 中央値を返す
 const getFat = (ageIndex, sex) => {
   let i = 0
   if (sex === 'female') {
-    i += 1
+    i += 2
   }
-  return fat[ageIndex][i]
+  return (fat[ageIndex][i] + fat[ageIndex][i + 1]) / 2
 }
 
 // saturated fatty acid 飽和脂肪酸
@@ -178,6 +179,7 @@ const getFat = (ageIndex, sex) => {
 // 50～69（歳） 7 以下 7 以下
 // 70 以上（歳） 7 以下 7 以下
 
+// 最大値
 const saturatedFattyAsid = [
   ['―', '―'],
   ['―', '―'],
@@ -186,11 +188,12 @@ const saturatedFattyAsid = [
   ['―', '―'],
   ['―', '―'],
   ['―', '―'],
-  ['7 以下', '7 以下'],
-  ['7 以下', '7 以下'],
-  ['7 以下', '7 以下'],
-  ['7 以下', '7 以下'],
+  [7, 7],
+  [7, 7],
+  [7, 7],
+  [7, 7],
 ]
+// 最大値
 const getSaturatedFattyAsid = (ageIndex, sex) => {
   let i = 0
   if (sex === 'female') {
@@ -280,25 +283,26 @@ const getNThreeFattyAsid = (ageIndex, sex) => {
 // 50～69（歳） 50～65（57.5） 50～65（57.5）
 // 70 以上（歳） 50～65（57.5） 50～65（57.5）
 
+// male min, male max, female min, female max
 const carbohydrate = [
-  ['50～65（57.5）', '50～65（57.5）'],
-  ['50～65（57.5）', '50～65（57.5）'],
-  ['50～65（57.5）', '50～65（57.5）'],
-  ['50～65（57.5）', '50～65（57.5）'],
-  ['50～65（57.5）', '50～65（57.5）'],
-  ['50～65（57.5）', '50～65（57.5）'],
-  ['50～65（57.5）', '50～65（57.5）'],
-  ['50～65（57.5）', '50～65（57.5）'],
-  ['50～65（57.5）', '50～65（57.5）'],
-  ['50～65（57.5）', '50～65（57.5）'],
-  ['50～65（57.5）', '50～65（57.5）'],
+  [50, 65, 50, 65],
+  [50, 65, 50, 65],
+  [50, 65, 50, 65],
+  [50, 65, 50, 65],
+  [50, 65, 50, 65],
+  [50, 65, 50, 65],
+  [50, 65, 50, 65],
+  [50, 65, 50, 65],
+  [50, 65, 50, 65],
+  [50, 65, 50, 65],
+  [50, 65, 50, 65],
 ]
 const getCarbohydrate = (ageIndex, sex) => {
   let i = 0
   if (sex === 'female') {
-    i += 1
+    i += 2
   }
-  return carbohydrate[ageIndex][i]
+  return (carbohydrate[ageIndex][i] + carbohydrate[ageIndex][i + 1]) / 2
 }
 
 // 食物繊維
@@ -314,18 +318,19 @@ const getCarbohydrate = (ageIndex, sex) => {
 // 50～69（歳） 20 以上 18 以上
 // 70 以上（歳） 19 以上 17 以上
 
+// 最小量
 const fiber = [
   ['―', '―'],
   ['―', '―'],
-  ['11 以上', '10 以上'],
-  ['12 以上', '12 以上'],
-  ['13 以上', '13 以上'],
-  ['17 以上', '16 以上'],
-  ['19 以上', '17 以上'],
-  ['20 以上', '18 以上'],
-  ['20 以上', '18 以上'],
-  ['20 以上', '18 以上'],
-  ['19 以上', '17 以上'],
+  [11, 10],
+  [12, 12],
+  [13, 13],
+  [17, 16],
+  [19, 17],
+  [20, 18],
+  [20, 18],
+  [20, 18],
+  [19, 17],
 ]
 const getFiber = (ageIndex, sex) => {
   let i = 0
@@ -344,7 +349,7 @@ export const nutritionData = ages.map((age, i) => {
       fat: getFat(i, 'male'),
       saturatdFattyAsid: getSaturatedFattyAsid(i, 'male'),
       nSixFattyAcid: getNSixFattyAsid(i, 'male'),
-      nThreeFattyAcid: getNSixFattyAsid(i, 'male'),
+      nThreeFattyAcid: getNThreeFattyAsid(i, 'male'),
       carbohydrate: getCarbohydrate(i, 'male'),
       fiber: getFiber(i, 'male'),
     },
@@ -354,7 +359,7 @@ export const nutritionData = ages.map((age, i) => {
       fat: getFat(i, 'female'),
       saturatdFattyAsid: getSaturatedFattyAsid(i, 'female'),
       nSixFattyAcid: getNSixFattyAsid(i, 'female'),
-      nThreeFattyAcid: getNSixFattyAsid(i, 'female'),
+      nThreeFattyAcid: getNThreeFattyAsid(i, 'female'),
       carbohydrate: getCarbohydrate(i, 'female'),
       fiber: getFiber(i, 'female'),
     },

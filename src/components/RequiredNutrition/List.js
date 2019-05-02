@@ -27,7 +27,7 @@ const List = ({ data }) => {
           <th>
             脂質
             <br />
-            <small>目標量</small>
+            <small>目標値 中央値</small>
           </th>
           <td>{data.fat} %エネルギー</td>
         </tr>
@@ -35,13 +35,13 @@ const List = ({ data }) => {
           <th>
             飽和脂肪酸
             <br />
-            <small>目標量</small>
+            <small>最大値</small>
           </th>
-          <td>{data.fat} %エネルギー</td>
+          <td>{data.saturatdFattyAsid} %エネルギー</td>
         </tr>
         <tr>
           <th>
-            n-6 系脂肪酸
+            n-6系脂肪酸
             <br />
             <small>目安量</small>
           </th>
@@ -49,7 +49,7 @@ const List = ({ data }) => {
         </tr>
         <tr>
           <th>
-            n-3 系脂肪酸
+            n-3系脂肪酸
             <br />
             <small>目安量</small>
           </th>
@@ -58,19 +58,21 @@ const List = ({ data }) => {
         <tr>
           <th rowSpan="2" style={{ verticalAlign: 'middle' }}>
             炭水化物
+          </th>
+          <th>
+            炭水化物
             <br />
             <small>目標量</small>
           </th>
-          <th>炭水化物</th>
           <td>{data.carbohydrate} g / day</td>
         </tr>
         <tr>
           <th>
             食物繊維
             <br />
-            <small>目標量</small>
+            <small>最小量</small>
           </th>
-          <td>{data.carbohydrate} g / day</td>
+          <td>{data.fiber} g / day</td>
         </tr>
       </tbody>
     </table>
