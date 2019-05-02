@@ -92,6 +92,39 @@ class Bmi extends Component {
               <p>適正体重 = (身長m)2 ×22</p>
             </div>
           </li>
+          <li>
+            <a className="uk-accordion-title" href="#">
+              目標とするＢＭＩの範囲
+            </a>
+            <div className="uk-accordion-content">
+              <table className="uk-table uk-table-divider">
+                <thead>
+                  <tr>
+                    <th>年齢（歳）</th>
+                    <th>目標とするBMI</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>18～49</td>
+                    <td>18.5～24.9</td>
+                  </tr>
+                  <tr>
+                    <td>50～69</td>
+                    <td>20.0～24.9</td>
+                  </tr>
+                  <tr>
+                    <td>70 以上</td>
+                    <td>21.5～24.9</td>
+                  </tr>
+                </tbody>
+              </table>
+              <small>
+                出典:{' '}
+                <a href="https://www.glico.co.jp/navi/e07.htm">食事摂取基準</a>
+              </small>
+            </div>
+          </li>
         </ul>
       </Fragment>
     )

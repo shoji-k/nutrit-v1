@@ -4,7 +4,7 @@ const Form = ({ formValues, handleChange }) => {
   return (
     <form className="uk-form-horizontal">
       <div className="uk-margin">
-        <label className="uk-form-label">身長</label>
+        <label className="uk-form-label">身長 cm</label>
         <div className="uk-form-controls">
           <input
             className="uk-input"
@@ -16,7 +16,7 @@ const Form = ({ formValues, handleChange }) => {
         </div>
       </div>
       <div className="uk-margin">
-        <label className="uk-form-label">体重</label>
+        <label className="uk-form-label">体重 kg</label>
         <div className="uk-form-controls">
           <input
             className="uk-input"
