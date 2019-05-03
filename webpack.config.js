@@ -3,6 +3,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const isProduction = process.env.NODE_ENV === 'production'
+console.log(isProduction)
 const mode = isProduction ? 'production' : 'development'
 
 module.exports = {
