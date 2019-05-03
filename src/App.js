@@ -1,5 +1,4 @@
-import React from 'react'
-import { createBrowserHistory } from 'history'
+import React, { Suspense, lazy } from 'react'
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,7 +11,9 @@ import ErrorBoundary from './components/ErrorBoundary'
 import Home from './components/Home'
 import Bmi from './components/Bmi/Bmi'
 import RequiredNutrition from './components/RequiredNutrition/RequiredNutrition'
-import RequiredNutritionGraph from './components/RequiredNutritionGraph/RequiredNutritionGraph'
+const RequiredNutritionGraph = lazy(() =>
+  import('./components/RequiredNutritionGraph/RequiredNutritionGraph')
+)
 
 const NoMatch = () => <h2>Not Found</h2>
 
@@ -29,27 +30,27 @@ const Main = () => (
     </nav>
 
     <ErrorBoundary>
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/bmi" component={Bmi} />
-        <Route exact path="/nutrition" component={RequiredNutrition} />
-        <Route
-          exact
-          path="/nutrition-graph"
-          component={RequiredNutritionGraph}
-        />
-        <Route component={NoMatch} />
-      </Switch>
+      <Suspense fallback={<div>Loading...</div>}>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/bmi" component={Bmi} />
+          <Route exact path="/nutrition" component={RequiredNutrition} />
+          <Route
+            exact
+            path="/nutrition-graph"
+            component={RequiredNutritionGraph}
+          />
+          <Route component={NoMatch} />
+        </Switch>
+      </Suspense>
     </ErrorBoundary>
   </div>
 )
 
 const App = withRouter(withTracker(Main))
 
-const history = createBrowserHistory()
-
 const AppWithRouter = () => (
-  <Router history={history}>
+  <Router>
     <App />
   </Router>
 )
