@@ -46,7 +46,9 @@ module.exports = {
       },
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new CleanWebpackPlugin(),
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: ['**/*', '!_redirects'],
+    }),
     new HtmlWebpackPlugin({
       template: 'src/assets/index.html',
     }),
