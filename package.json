@@ -5,7 +5,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "build": "webpack-cli --mode=production",
+    "build": "webpack-cli --mode=production -p",
     "start": "webpack-dev-server",
     "lint": "eslint src"
   },
