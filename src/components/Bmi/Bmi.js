@@ -1,12 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import Form from './Form'
-
-const isNumber = n => typeof n === 'number' && isFinite(n)
-const isNaturalNumber = n => isNumber(n) && n > 0
-const roundNumber = (n, precise) => {
-  const ratio = Math.pow(10, precise)
-  return Math.round(n * ratio) / 100
-}
+import { isNaturalNumber, roundNumber } from '../../utils'
 
 class Bmi extends Component {
   constructor(props) {

@@ -24,7 +24,7 @@ class RequiredNutrition extends Component {
     )
     return (
       <Fragment>
-        <h3 style={{ margin: '1rem 0' }}>食事摂取基準</h3>
+        <h3 style={{ margin: '1rem 0' }}>1日の食事摂取基準</h3>
         <Form formValues={this.state} handleChange={this.handleChange} />
         <hr className="uk-divider-icon" />
         <List data={data[this.state.sex]} />
