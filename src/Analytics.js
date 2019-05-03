@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import GoogleAnalytics from 'react-ga'
-
-const isProduction = process.env.NODE_ENV === 'production'
+import { isProduction } from './utils'
 
 if (isProduction) {
   GoogleAnalytics.initialize('UA-56127730-5')

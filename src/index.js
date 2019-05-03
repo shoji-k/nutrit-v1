@@ -2,8 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './style.css'
 import App from './App'
+import { isProduction } from './utils'
 
-if (process.env.NODE_ENV !== 'production') {
+if (!isProduction) {
   console.log('Looks like we are in development mode.')
 }
 
