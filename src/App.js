@@ -1,4 +1,5 @@
 import React from 'react'
+import { createBrowserHistory } from 'history'
 import {
   BrowserRouter as Router,
   Switch,
@@ -38,8 +39,10 @@ const Main = () => (
 
 const App = withRouter(withTracker(Main))
 
+const history = createBrowserHistory()
+
 const AppWithRouter = () => (
-  <Router>
+  <Router history={history}>
     <App />
   </Router>
 )
