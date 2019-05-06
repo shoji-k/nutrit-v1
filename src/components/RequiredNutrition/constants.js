@@ -372,3 +372,10 @@ export const getNutritionData = exercise_level =>
       },
     }
   })
+
+export const getPersonData = (exercise_level, age, sex) => {
+  const data = getNutritionData(exercise_level).find(one =>
+    one.ages.includes(age)
+  )
+  return data[sex]
+}

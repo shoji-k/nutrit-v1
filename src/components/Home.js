@@ -12,6 +12,9 @@ const Home = () => (
     <li>
       <Link to="nutrition-graph">日本人の食事摂取基準 グラフ</Link>
     </li>
+    <li>
+      <Link to="nutrition-manager">栄養素管理(WIP)</Link>
+    </li>
   </ul>
 )
 export default Home

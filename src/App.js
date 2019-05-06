@@ -11,6 +11,7 @@ import ErrorBoundary from './components/ErrorBoundary'
 import Home from './components/Home'
 import Bmi from './components/Bmi/Bmi'
 import RequiredNutrition from './components/RequiredNutrition/RequiredNutrition'
+import RequiredNutritionManager from './components/RequiredNutritionManager/RequiredNutritionManager'
 import About from './components/About'
 
 const RequiredNutritionGraph = lazy(() =>
@@ -51,6 +52,11 @@ const Main = () => (
           <Route exact path="/" component={Home} />
           <Route exact path="/bmi" component={Bmi} />
           <Route exact path="/nutrition" component={RequiredNutrition} />
+          <Route
+            exact
+            path="/nutrition-manager"
+            component={RequiredNutritionManager}
+          />
           <Route
             exact
             path="/nutrition-graph"
