@@ -7,6 +7,12 @@ import {
   Radar,
   Legend,
 } from 'recharts'
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile,
+} from 'react-device-detect'
 import { roundNumber } from '../../utils'
 import { getPersonData } from '../RequiredNutrition/constants'
 
@@ -126,56 +132,128 @@ const RequiredNutritionManager = () => {
         </Fragment>
       ))}
 
-      <h3>合計</h3>
-      <table className="uk-table uk-table-divider">
-        <thead>
-          <tr>
-            <th />
-            {data.map((one, i) => (
-              <th key={i}>{one.name}</th>
-            ))}
-            <th>合計</th>
-            <th>必要量</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th>エネルギー</th>
-            {data.map((one, i) => (
-              <td key={i}>{one.energy} kcal</td>
-            ))}
-            <td>{sumData.energy} kcal</td>
-            <td>{personData.energy} kcal</td>
-          </tr>
-          <tr>
-            <th>たんぱく質</th>
-            {data.map((one, i) => (
-              <td key={i}>{one.protein} g</td>
-            ))}
-            <td>{sumData.protein} g</td>
-            <td>{personData.protein} g</td>
-          </tr>
-          <tr>
-            <th>脂質</th>
-            {data.map((one, i) => (
-              <td key={i}>{one.fat} g</td>
-            ))}
-            <td>{sumData.fat} g</td>
-            <td>{personData.fat} g</td>
-          </tr>
-          <tr>
-            <th>炭水化物</th>
-            {data.map((one, i) => (
-              <td key={i}>{one.carbohydrate} g</td>
-            ))}
-            <td>{sumData.carbohydrate} g</td>
-            <td>{personData.carbohydrate} g</td>
-          </tr>
-        </tbody>
-      </table>
+      {isBrowser ? (
+        <Fragment>
+          <h3>合計</h3>
+          <table className="uk-table uk-table-divider">
+            <thead>
+              <tr>
+                <th />
+                {data.map((one, i) => (
+                  <th key={i}>{one.name}</th>
+                ))}
+                <th>合計</th>
+                <th>必要量</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>エネルギー</th>
+                {data.map((one, i) => (
+                  <td key={i}>{one.energy} kcal</td>
+                ))}
+                <td>{sumData.energy} kcal</td>
+                <td>{personData.energy} kcal</td>
+              </tr>
+              <tr>
+                <th>たんぱく質</th>
+                {data.map((one, i) => (
+                  <td key={i}>{one.protein} g</td>
+                ))}
+                <td>{sumData.protein} g</td>
+                <td>{personData.protein} g</td>
+              </tr>
+              <tr>
+                <th>脂質</th>
+                {data.map((one, i) => (
+                  <td key={i}>{one.fat} g</td>
+                ))}
+                <td>{sumData.fat} g</td>
+                <td>{personData.fat} g</td>
+              </tr>
+              <tr>
+                <th>炭水化物</th>
+                {data.map((one, i) => (
+                  <td key={i}>{one.carbohydrate} g</td>
+                ))}
+                <td>{sumData.carbohydrate} g</td>
+                <td>{personData.carbohydrate} g</td>
+              </tr>
+            </tbody>
+          </table>
+        </Fragment>
+      ) : (
+        <Fragment>
+          <h3>合計</h3>
+          <table className="uk-table uk-table-divider">
+            <thead>
+              <tr>
+                <th />
+                {/* <th>詳細</th> */}
+                <th>合計</th>
+                <th>必要量</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>エネルギー</th>
+                {/* <td>
+                  {data.map((one, i) => (
+                    <Fragment key={i}>
+                      {one.name + ': ' + one.energy} kcal
+                      <br />
+                    </Fragment>
+                  ))}
+                </td> */}
+                <td>{sumData.energy} kcal</td>
+                <td>{personData.energy} kcal</td>
+              </tr>
+              <tr>
+                <th>たんぱく質</th>
+                {/* <td>
+                  {data.map((one, i) => (
+                    <Fragment key={i}>
+                      {one.name + ': ' + one.protein} kcal
+                      <br />
+                    </Fragment>
+                  ))}
+                </td> */}
+                <td>{sumData.protein} kcal</td>
+                <td>{personData.protein} kcal</td>
+              </tr>
+              <tr>
+                <th>脂質</th>
+                {/* <td>
+                  {data.map((one, i) => (
+                    <Fragment key={i}>
+                      {one.name + ': ' + one.fat} kcal
+                      <br />
+                    </Fragment>
+                  ))}
+                </td> */}
+                <td>{sumData.fat} kcal</td>
+                <td>{personData.fat} kcal</td>
+              </tr>
+              <tr>
+                <th>炭水化物</th>
+                {/* <td>
+                  {data.map((one, i) => (
+                    <Fragment key={i}>
+                      {one.name + ': ' + one.carbohydrate} kcal
+                      <br />
+                    </Fragment>
+                  ))}
+                </td> */}
+                <td>{sumData.carbohydrate} kcal</td>
+                <td>{personData.carbohydrate} kcal</td>
+              </tr>
+            </tbody>
+          </table>
+        </Fragment>
+      )}
 
       <h3>合計%チャート</h3>
-      <RadarChart width={730} height={360} data={chartData}>
+      <RadarChart width={480} height={360} data={chartData}>
         <PolarGrid />
         <PolarAngleAxis dataKey="type" />
         <PolarRadiusAxis angle={90} domain={[0, 100]} />
@@ -186,7 +264,6 @@ const RequiredNutritionManager = () => {
           fill="#8884d8"
           fillOpacity={0.6}
         />
-        <Legend />
       </RadarChart>
     </div>
   )
