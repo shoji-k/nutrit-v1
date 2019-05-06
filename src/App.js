@@ -11,9 +11,10 @@ import ErrorBoundary from './components/ErrorBoundary'
 import Home from './components/Home'
 import Bmi from './components/Bmi/Bmi'
 import RequiredNutrition from './components/RequiredNutrition/RequiredNutrition'
-import RequiredNutritionManager from './components/RequiredNutritionManager/RequiredNutritionManager'
 import About from './components/About'
-
+const RequiredNutritionManager = lazy(() =>
+  import('./components/RequiredNutritionManager/RequiredNutritionManager')
+)
 const RequiredNutritionGraph = lazy(() =>
   import('./components/RequiredNutritionGraph/RequiredNutritionGraph')
 )
