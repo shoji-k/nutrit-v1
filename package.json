@@ -10,6 +10,10 @@
     "lint": "eslint src",
     "analytics": "webpack-cli --profile --json > stats.json"
   },
+  "renovate": {
+    "automerge": true,
+    "extends": ["config:base"]
+  },
   "devDependencies": {
     "@babel/core": "7.4.4",
     "@babel/plugin-proposal-class-properties": "7.4.4",
