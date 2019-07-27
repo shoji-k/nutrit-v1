@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "react": "16.8.6",
-    "react-device-detect": "1.6.2",
+    "react-device-detect": "1.7.5",
     "react-dom": "16.8.6",
     "react-ga": "2.6.0",
     "react-router-dom": "5.0.1",
