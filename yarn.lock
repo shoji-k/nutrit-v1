@@ -4776,10 +4776,10 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-device-detect@1.7.5:
-  version "1.7.5"
-  resolved "https://registry.yarnpkg.com/react-device-detect/-/react-device-detect-1.7.5.tgz#04c8a6475d67b5ac4f984c8d912ec11134f5b893"
-  integrity sha512-ccgJuTHVCI3yfqvgU56gQDvjueFyaHVAXsa5rJuzWRasvsd0IalzfyccSECIlygjv3E+DmAGcwNYWUarUA82Fw==
+react-device-detect@1.9.7:
+  version "1.9.7"
+  resolved "https://registry.yarnpkg.com/react-device-detect/-/react-device-detect-1.9.7.tgz#26bf06b45b1c11cf671b301e3e606eff6926d864"
+  integrity sha512-C91Rk7YzcTajs56ABWSq3yEgrjL+fsQKHpAQpPFl8scTYP+dOWDj60m9uWlR4LCTv7eeetuCxTXC5mnSBOdjYQ==
 
 react-dom@16.9.0:
   version "16.9.0"
