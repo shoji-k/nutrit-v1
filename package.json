@@ -37,10 +37,10 @@
     "webpack-dev-server": "3.8.1"
   },
   "dependencies": {
-    "react": "16.10.1",
+    "react": "16.10.2",
     "react-device-detect": "1.9.10",
     "react-dom": "16.10.2",
-    "react-ga": "2.6.0",
+    "react-ga": "2.7.0",
     "react-router-dom": "5.1.2",
     "recharts": "1.7.1"
   }
