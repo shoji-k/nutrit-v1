@@ -44,6 +44,6 @@
     "react-dom": "16.11.0",
     "react-ga": "2.7.0",
     "react-router-dom": "5.1.2",
-    "recharts": "1.8.3"
+    "recharts": "1.8.5"
   }
 }
