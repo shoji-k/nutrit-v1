@@ -41,7 +41,7 @@
     "webpack-dev-server": "3.10.3"
   },
   "dependencies": {
-    "react": "16.12.0",
+    "react": "16.13.0",
     "react-device-detect": "1.11.14",
     "react-dom": "16.12.0",
     "react-ga": "2.7.0",
