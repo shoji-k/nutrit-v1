@@ -44,7 +44,7 @@
     "react": "16.14.0",
     "react-device-detect": "1.15.0",
     "react-dom": "16.14.0",
-    "react-ga": "3.2.1",
+    "react-ga": "3.3.0",
     "react-router-dom": "5.2.0",
     "recharts": "2.0.3"
   }
