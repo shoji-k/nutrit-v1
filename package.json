@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "build": "NODE_ENV=production webpack-cli --mode=production",
-    "start": "webpack-dev-server",
+    "start": "webpack-cli serve --mode=development",
     "lint": "eslint src",
     "analytics": "webpack-cli --profile --json > stats.json",
     "cypress-test": "cypress run"
