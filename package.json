@@ -6,7 +6,7 @@
   "private": true,
   "scripts": {
     "build": "NODE_ENV=production webpack-cli --mode=production",
-    "start": "webpack-dev-server",
+    "start": "webpack-cli serve --mode=development",
     "lint": "eslint src",
     "analytics": "webpack-cli --profile --json > stats.json",
     "cypress-test": "cypress run"
@@ -37,7 +37,7 @@
     "prettier": "2.2.1",
     "style-loader": "2.0.0",
     "webpack": "4.46.0",
-    "webpack-cli": "3.3.12",
+    "webpack-cli": "4.5.0",
     "webpack-dev-server": "3.11.2"
   },
   "dependencies": {
